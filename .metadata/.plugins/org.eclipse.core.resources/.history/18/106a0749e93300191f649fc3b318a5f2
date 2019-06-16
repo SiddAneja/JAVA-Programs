@@ -1,0 +1,18 @@
+import java.text.ParseException;
+
+public class ExceptionalBookLibraryTests {
+  public static boolean testLibraryParseCardBarCode() {
+    ExceptionalLibrary test = new ExceptionalLibrary("Madison", "TEST", "cs300");
+    int validBarCode = 2019000001;
+    String testBarCode = "2019";
+    try {
+      if(test.parseCardBarCode(testBarCode, 111) != validBarCode) {
+        return true;
+      }
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+    return false;
+  }
+
+}

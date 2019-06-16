@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;sec004ordinal_inclass&apos;" deleteContents="true" description="Delete resource &apos;sec004ordinal_inclass&apos;" element1="/sec004ordinal_inclass" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1538875134178"/>
+</session>

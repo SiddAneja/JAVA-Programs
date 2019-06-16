@@ -1,0 +1,84 @@
+package instaWeather;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class startscreen extends JFrame {
+
+  private JPanel contentPane;
+  private JTextField textField;
+  private JLabel lb1;
+  /**
+   * Launch the application.
+   */
+  public static void main(String[] args) {
+    EventQueue.invokeLater(new Runnable() {
+      public void run() {
+        try {
+          startscreen frame = new startscreen();
+          frame.setVisible(true);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+  }
+
+  public void clock() {
+    Thread clockDynamic = new Thread() {
+      public void run() {
+        try {
+          Calendar cal = new GregorianCalendar();
+          int day = cal.get(Calendar.DAY_OF_MONTH);
+          int month = cal.get(Calendar.MONTH);
+          int year = cal.get(Calendar.YEAR);
+          
+          int seconds = cal.get(Calendar.SECOND);
+          int minutes = cal.get(Calendar.MINUTE);
+          int hour = cal.get(Calendar.HOUR);
+          
+          lb1.setText(month + "/" + day + "/" + year + "\n");
+          lb1.setText(hour + ":" + minutes + ":" + seconds);
+          sleep(1000);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+    };
+    clockDynamic.start();
+  }
+  
+  /**
+   * Create the frame.
+   */
+  public startscreen() {
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setBounds(100, 100, 450, 300);
+    contentPane = new JPanel();
+    contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+    setContentPane(contentPane);
+    contentPane.setLayout(null);
+    
+    textField = new JTextField();
+    textField.setBounds(95, 136, 224, 22);
+    contentPane.add(textField);
+    textField.setColumns(10);
+    
+    JButton btnNewButton = new JButton("New button");
+    btnNewButton.setBounds(150, 167, 97, 25);
+    contentPane.add(btnNewButton);
+    
+    lb1 = new JLabel("");
+    lb1.setBounds(12, 13, 132, 50);
+    contentPane.add(lb1);
+    clock();
+  }
+}

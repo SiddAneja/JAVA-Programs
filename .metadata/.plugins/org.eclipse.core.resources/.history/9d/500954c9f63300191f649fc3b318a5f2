@@ -1,0 +1,54 @@
+import java.text.ParseException;
+
+public class ExceptionalBookLibraryTests {
+  public static boolean testLibraryParseCardBarCode() {
+    ExceptionalLibrary test = new ExceptionalLibrary("Madison", "TEST", "cs300");
+    int validBarCode = 2019000001;
+    String testBarCode = "2019000001";
+    try {
+      if(test.parseCardBarCode(testBarCode, 111) == validBarCode) {
+        return true;
+      }
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+    return false;
+  }
+  
+  public static boolean testLibraryParseRunLibrarianCheckoutBookCommand() {
+    ExceptionalLibrary testLibrary = new ExceptionalLibrary("Madison", "TESTLIBRARY", "cs300");
+    String[] addBookCommands = {"1", "TestBook", "cs300"};
+    String[] addSubscriberCommands = {"2","TestSub","1111","Madison", "1234567890"};
+    String[] commands = {"3", "2019000001", "1"};
+    try {
+      testLibrary.parseRunLibrarianAddBookCommand(addBookCommands);
+      testLibrary.parseRunLibrarianAddSubscriberCommand(addSubscriberCommands);
+      testLibrary.parseRunLibrarianCheckoutBookCommand(commands);
+    } catch (ParseException e) {
+      System.out.println("ERROR: while processing commands");
+    } catch (InstantiationException e) {
+      System.out.println("ERROR: while processing commands");
+    }
+    if(testLibrary.findBook(1).isAvailable() == false) {
+      return true;
+    }
+    return false;
+  }
+  
+  public static boolean testLibraryParseRunSubscriberReturnBookCommand() {}
+  
+  
+  public static void main(String[] args) {
+    if(testLibraryParseCardBarCode() == false) {
+      System.out.println("FAILED: testLibraryParseCardBarCode().");
+    }
+    if(testLibraryParseRunLibrarianCheckoutBookCommand() == false) {
+      System.out.println("FAILED: testLibraryParseRunLibrarianCheckoutBookCommand().");
+    }
+    //if(testLibraryParseRunSubscriberReturnBookCommand() == false) {
+    //  System.out.println("FAILED: testLibraryParseRunSubscriberReturnBookCommand().");
+    //}
+  }
+
+}
+

@@ -1,0 +1,53 @@
+/////////////////// ALL ASSIGNMENTS INCLUDE THIS SECTION /////////////////////
+//
+// Title:           ShoppingCart.java
+// Files:           none
+// Course:          CS300 Spring 2019
+//
+// Author:          Siddharth Aneja
+// Email:           saneja@wisc.edu
+// Lecturer's Name: Mouna Kacem
+//
+//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
+//
+// Partner Name:    Alyssa Odau
+// Partner Email:   odau@wisc.edu
+// Partner Lecturer's Name: Mouna Kacem
+// 
+// VERIFY THE FOLLOWING BY PLACING AN X NEXT TO EACH TRUE STATEMENT:
+//   _x__ Write-up states that pair programming is allowed for this assignment.
+//   _x__ We have both read and understand the course Pair Programming Policy.
+//   _x__ We have registered our team prior to the team registration deadline.
+//
+///////////////////////////// CREDIT OUTSIDE HELP /////////////////////////////
+//
+// Students who get help from sources other than their partner must fully 
+// acknowledge and credit those sources of help here.  Instructors and TAs do 
+// not need to be credited here, but tutors, friends, relatives, room mates, 
+// strangers, and others do.  If you received no outside help from either type
+//  of source, then please explicitly indicate NONE.
+//
+// Persons:         (identify each person and describe their help in detail)
+// Online Sources:  (identify each URL and describe their assistance in detail)
+//
+/////////////////////////////// 80 COLUMNS WIDE ///////////////////////////////
+public class ShoppingCart {
+  private static final int CART_CAPACITY = 20; // shopping cart max capacity
+  private static final double TAX_RATE = 0.05; // sales tax
+  
+  //MARKET_ITEMS[i][0] refers to a String that represents the description of the item
+  //                  identified by index i
+  //MARKET_ITEMS[i][1] refers to a String that represents the unit price of the item
+  //                  identified by index i in dollars.
+  /**
+   * A perfect-size two-dimensional array that stores the available items in the market
+   */
+  public static final String[][] MARKET_ITEMS = new String[][] {{"Apple", "$1.59"},
+    {"Avocado", "$0.59"}, {"Banana", "$0.49"}, {"Beef", "$3.79"}, {"Blueberry", "$6.89"},
+    {"Broccoli", "$1.79"}, {"Butter", "$4.59"}, {"Carrot", "$1.19"}, {"Cereal", "$3.69"},
+    {"Cheese", "$3.49"}, {"Chicken", "$5.09"}, {"Chocolate", "$3.19"}, {"Cookie", "$9.5"},
+    {"Cucumber", "$0.79"}, {"Eggs", "$3.09"}, {"Grape", "$2.29"}, {"Ice Cream", "$5.39"},
+    {"Milk", "$2.09"}, {"Mushroom", "$1.79"}, {"Onion", "$0.79"}, {"Pepper", "$1.99"},
+    {"Pizza", "$11.5"}, {"Potato", "$0.69"}, {"Spinach", "$3.09"}, {"Tomato", "$1.79"}};
+
+}

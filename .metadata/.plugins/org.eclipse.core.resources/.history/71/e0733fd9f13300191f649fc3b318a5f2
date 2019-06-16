@@ -1,0 +1,25 @@
+import java.text.ParseException;
+
+public class ExceptionalBookLibraryTests {
+  public static boolean testLibraryParseCardBarCode() {
+    ExceptionalLibrary test = new ExceptionalLibrary("Madison", "TEST", "cs300");
+    int validBarCode = 2019000001;
+    String testBarCode = "2019000001";
+    try {
+      if(test.parseCardBarCode(testBarCode, 111) == validBarCode) {
+        return true;
+      }
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+    return false;
+  }
+  
+  public static void main(String[] args) {
+    if(testLibraryParseCardBarCode() == false) {
+      System.out.println("FAILED: testLibraryParseCardBarCode().");
+    }
+  }
+
+}
+

@@ -1,0 +1,77 @@
+package instaWeather;
+
+import java.awt.EventQueue;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class displayScreen {
+
+  private JFrame frame;
+  private JLabel lb1;
+
+  /**
+   * Launch the application.
+   */
+  public static void main(String[] args) {
+    EventQueue.invokeLater(new Runnable() {
+      public void run() {
+        try {
+          displayScreen window = new displayScreen();
+          window.frame.setVisible(true);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+  }
+
+  public void clock() {
+    Thread clockDynamic = new Thread() {
+      public void run() {
+        try {
+          while(true) {
+            Calendar cal = new GregorianCalendar();
+            int day = cal.get(Calendar.DAY_OF_MONTH);
+            int month = cal.get(Calendar.MONTH);
+            int year = cal.get(Calendar.YEAR);
+            
+            int seconds = cal.get(Calendar.SECOND);
+            int minutes = cal.get(Calendar.MINUTE);
+            int hour = cal.get(Calendar.HOUR);
+            
+            lb1.setText(month + "/" + day + "/" + year + "  " + hour + ":" + minutes + ":" + seconds);
+            sleep(1000);
+          }
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+    };
+    clockDynamic.start();
+  }
+  
+  /**
+   * Create the application.
+   */
+  public displayScreen() {
+    initialize();
+  }
+
+  /**
+   * Initialize the contents of the frame.
+   */
+  private void initialize() {
+    frame = new JFrame();
+    frame.setBounds(100, 100, 450, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.getContentPane().setLayout(null);
+    
+    JLabel lb1 = new JLabel("");
+    lb1.setBounds(12, 13, 56, 16);
+    frame.getContentPane().add(lb1);
+    clock();
+  }
+
+}
