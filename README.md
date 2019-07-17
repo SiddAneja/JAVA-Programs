@@ -1,3 +1,6 @@
+# Project Descriptions
+A description of all the projects above is givem below:
+
 # ShoppingCart
 In this project, we created and implemented a simple version of a Shopping Cart using JAVA Arrays.
 The following is a demo of the program: <br />
